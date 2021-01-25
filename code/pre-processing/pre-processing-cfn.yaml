@@ -20,6 +20,13 @@ Parameters:
     Type: String
     Default: us-east-1
     Description: AWS Region for AWS Data Exchange
+  Schedule:
+    Type: String
+    Default: "cron(45 7 ? * 6 *)"
+    Description: Cron Expression for the Lambda Run Schedule
+  SourceURL:
+    Type: String
+    Description: Source URL for Data File Download (only single file datasets)
 
 Resources:
 # Create an IAM role for Lambda to use
@@ -80,12 +87,14 @@ Resources:
             Fn::Sub: ${ProductId}
           REGION:
             Fn::Sub: ${Region}
+          SOURCE_URL:
+            Fn::Sub: ${SourceURL}
 
   ScheduledRule:
     Type: AWS::Events::Rule
     Properties:
       Description: "ScheduledRule"
-      ScheduleExpression: "cron(45 7 ? * 6 *)"
+      ScheduleExpression: ${Schedule}
       State: "ENABLED"
       Targets:
         -

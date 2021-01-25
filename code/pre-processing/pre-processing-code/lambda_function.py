@@ -18,6 +18,7 @@ marketplace = boto3.client(
 	region_name=os.environ['REGION']
 )
 
+source_url = os.environ('SOURCE_URL')
 s3_bucket = os.environ['S3_BUCKET']
 data_set_arn = os.environ['DATA_SET_ARN']
 data_set_id = data_set_arn.split('/', 1)[1]
@@ -29,6 +30,9 @@ post_processing_code = data_set_name + '/automation/post-processing-code.zip'
 
 today = date.today().strftime('%Y-%m-%d')
 revision_comment = 'Revision Updates v' + today
+
+if not source_url:
+	raise Exception("'SOURCE_URL' environment variable must be defined!")
 
 if not s3_bucket:
 	raise Exception("'S3_BUCKET' environment variable must be defined!")
@@ -113,7 +117,7 @@ def jobs_handler(data):
 
 
 def lambda_handler(event, context):
-	asset_list = source_dataset()
+	asset_list = source_dataset(source_url)
 	asset_lists = [asset_list[i:i+100] for i in range(0,len(asset_list), 100)]
 
 	if type(asset_lists) == list:
