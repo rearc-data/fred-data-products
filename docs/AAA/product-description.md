@@ -1,6 +1,6 @@
-##  Moody's Seasoned Aaa Corporate Bond Yield (AAA)	 | FRED
+##  Moody's Seasoned Aaa Corporate Bond Yield (AAA)	| FRED
 
-The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-permit](https://github.com/rearc-data/fred-permit).
+The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-data-products](https://github.com/rearc-data/fred-data-products).
 
 ### Main Overview
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
