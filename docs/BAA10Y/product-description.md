@@ -19,7 +19,7 @@ This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred
   - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
 - Dataset Page: [Moody's Seasoned Baa Corporate Bond Yield Relative to Yield on 10-Year Treasury Constant Maturity (BAA10Y) | FRED](https://fred.stlouisfed.org/series/BAA10Y)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
-- Frequency: Monthly
+- Frequency: Daily
 - Format: CSV
 
 ### Contact Details
