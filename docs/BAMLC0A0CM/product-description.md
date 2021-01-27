@@ -17,7 +17,7 @@ This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred
 - Source: 
   - [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org)
   - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
-- Dataset Page: [New Private Housing Units Authorized by Building Permits (PERMIT) | FRED](https://fred.stlouisfed.org/series/BAMLC0A0CM)
+- Dataset Page: [ICE BofA US Corporate Index Option-Adjusted Spread (BAMLC0A0CM)](https://fred.stlouisfed.org/series/BAMLC0A0CM)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
 - Frequency: Monthly
 - Format: CSV
