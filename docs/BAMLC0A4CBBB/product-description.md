@@ -6,7 +6,7 @@ The source code outlining how this product gathers, transforms, revises and publ
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
 `DATE`, `BAMLC0A4CBBB`
 
-This dataset contains a historical time-series data of starting ICE BofA BBB US Corporate Index Option-Adjusted Spread from `1960-01-01`. 
+This dataset contains a historical time-series data of starting ICE BofA BBB US Corporate Index Option-Adjusted Spread from `1996-12-31`. 
  
 The values within the data field labeled `BAMLC0A4CBBB` represent the Option-Adjusted Spread (OAS) in `Percent` at the time of the corresponding `DATE` field. Values are not seasonally adjusted.
 
@@ -17,7 +17,7 @@ This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred
 - Source: 
   - [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org)
   - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
-- Dataset Page: [New Private Housing Units Authorized by Building Permits (PERMIT) | FRED](https://fred.stlouisfed.org/series/BAMLC0A4CBBB)
+- Dataset Page: [ICE BofA BBB US Corporate Index Option-Adjusted Spread (BAMLC0A4CBBB)](https://fred.stlouisfed.org/series/BAMLC0A4CBBB)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
 - Frequency: Daily
 - Format: CSV
