@@ -13,7 +13,13 @@ The values within the data field labeled `PERMIT` represent the total number of 
 Starting with the `2005-02-16` release, the series reflects an increase in the universe of permit-issuing places from 19,000 to 20,000 places.
 
 ### Data Source
-This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
+This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED).
+
+The included dataset contains the following columns:
+
+`date, PERMIT`
+
+The `PERMIT` column represents thousands of units/houses authorized by building permits at the time of the corresponding `date`.
 
 ### More Information
 - Source: 
