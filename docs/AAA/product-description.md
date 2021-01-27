@@ -1,4 +1,4 @@
-## New Private Housing Units Authorized by Building Permits (PERMIT) | FRED
+##  Moody's Seasoned Aaa Corporate Bond Yield (AAA)	 | FRED
 
 The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-permit](https://github.com/rearc-data/fred-permit).
 
