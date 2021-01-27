@@ -6,7 +6,7 @@ The source code outlining how this product gathers, transforms, revises and publ
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
 `DATE`, `BAA10Y`
 
-This dataset contains a historical time-series data of Moody's Seasoned Baa Corporate Bond Yield Relative to Yield on 10-Year Treasury Constant Maturity starting from `2016-01-22`. 
+This dataset contains a historical time-series data of Moody's Seasoned Baa Corporate Bond Yield Relative to Yield on 10-Year Treasury Constant Maturity starting from `1986-01-02`. 
  
 The values within the data field labeled `BAA10Y` represent the bond yield in `Percent` at the time of the corresponding `DATE` field. Values are calculated by the spread between [Moody's Seasoned Baa Corporate Bond](https://fred.stlouisfed.org/series/DBAA) and [10-Year Treasury Constant Maturity](https://fred.stlouisfed.org/series/BC_10YEAR)
 
