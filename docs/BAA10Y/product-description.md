@@ -1,16 +1,14 @@
-## New Private Housing Units Authorized by Building Permits (PERMIT) | FRED
+## Moody's Seasoned Baa Corporate Bond Yield Relative to Yield on 10-Year Treasury Constant Maturity (BAA10Y) | FRED
 
 The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-permit](https://github.com/rearc-data/fred-permit).
 
 ### Main Overview
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
-`DATE`, `PERMIT`
+`DATE`, `BAA10Y`
 
-This dataset contains a historical time-series data of U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Private Housing Units Authorized by Building Permits (PERMIT) starting from `1960-01-01`. 
+This dataset contains a historical time-series data of Moody's Seasoned Baa Corporate Bond Yield Relative to Yield on 10-Year Treasury Constant Maturity starting from `2016-01-22`. 
  
-The values within the data field labeled `PERMIT` represent the total number of new building permits for private housing units in the US in `Thausands of Units` at the time of the corresponding `DATE` field. Values are based on seasonally adjusted annual rate.
-
-Starting with the `2005-02-16` release, the series reflects an increase in the universe of permit-issuing places from 19,000 to 20,000 places.
+The values within the data field labeled `BAA10Y` represent the bond yield in `Percent` at the time of the corresponding `DATE` field. Values are calculated by the spread between [Moody's Seasoned Baa Corporate Bond](https://fred.stlouisfed.org/series/DBAA) and [10-Year Treasury Constant Maturity](https://fred.stlouisfed.org/series/BC_10YEAR)
 
 ### Data Source
 This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
@@ -19,7 +17,7 @@ This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred
 - Source: 
   - [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org)
   - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
-- Dataset Page: [New Private Housing Units Authorized by Building Permits (PERMIT) | FRED](https://fred.stlouisfed.org/series/PERMIT)
+- Dataset Page: [Moody's Seasoned Baa Corporate Bond Yield Relative to Yield on 10-Year Treasury Constant Maturity (BAA10Y) | FRED](https://fred.stlouisfed.org/series/BAA10Y)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
 - Frequency: Monthly
 - Format: CSV
