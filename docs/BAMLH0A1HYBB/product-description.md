@@ -6,9 +6,9 @@ The source code outlining how this product gathers, transforms, revises and publ
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
 `DATE`, `BAMLH0A1HYBB`
 
-This dataset contains a historical time-series data of U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Private Housing Units Authorized by Building Permits (PERMIT) starting from `1996-12-31`. 
+This dataset contains a historical time-series data of ICE BofA BB US High Yield Index Option-Adjusted Spread (BAMLH0A1HYBB) starting from `1996-12-31`. 
  
-The values within the data field labeled `BAMLH0A1HYBB` represent the total number of new building permits for private housing units in the US in `Thausands of Units` at the time of the corresponding `DATE` field. Values are based on seasonally adjusted annual rate.
+The values within the data field labeled `BAMLH0A1HYBB` represent Option-Adjusted Spread (OAS) of the ICE BofA US Corporate BB Index in `Percent` at the time of the corresponding `DATE` field. Values are not seasonally adjusted.
 
 ### Data Source
 This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
@@ -19,7 +19,7 @@ This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred
   - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
 - Dataset Page: [ICE BofA BB US High Yield Index Option-Adjusted Spread(BAMLH0A1HYBB) | FRED](https://fred.stlouisfed.org/series/BAMLH0A1HYBB)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
-- Frequency: Monthly
+- Frequency: Daily
 - Format: CSV
 
 ### Contact Details
