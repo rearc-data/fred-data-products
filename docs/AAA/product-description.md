@@ -4,28 +4,20 @@ The source code outlining how this product gathers, transforms, revises and publ
 
 ### Main Overview
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
-`DATE`, `PERMIT`
+`DATE`, `AAA`
 
-This dataset contains a historical time-series data of U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Private Housing Units Authorized by Building Permits (PERMIT) starting from `1960-01-01`. 
+This dataset contains a historical time-series data of Moody's Seasoned Aaa Corporate Bond Yield (AAA)	starting from `1919-01-01.`
  
-The values within the data field labeled `PERMIT` represent the total number of new building permits for private housing units in the US in `Thausands of Units` at the time of the corresponding `DATE` field. Values are based on seasonally adjusted annual rate.
-
-Starting with the `2005-02-16` release, the series reflects an increase in the universe of permit-issuing places from 19,000 to 20,000 places.
+The values within the data field labeled `AAA` represent the bond yield in `Percent` at the time of the corresponding `DATE` field. The numbers are based on bonds with maturities 20 years and above.
 
 ### Data Source
 This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED).
-
-The included dataset contains the following columns:
-
-`date, PERMIT`
-
-The `PERMIT` column represents thousands of units/houses authorized by building permits at the time of the corresponding `date`.
 
 ### More Information
 - Source: 
   - [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org)
   - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
-- Dataset Page: [New Private Housing Units Authorized by Building Permits (PERMIT) | FRED](https://fred.stlouisfed.org/series/PERMIT)
+- Dataset Page: [New Private Housing Units Authorized by Building Permits (PERMIT) | FRED](https://fred.stlouisfed.org/series/AAA)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
 - Frequency: Monthly
 - Format: CSV
