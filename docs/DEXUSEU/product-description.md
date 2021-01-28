@@ -8,7 +8,7 @@ The dataset file included with this product is provided in CSV format. The inclu
 
 This dataset contains a historical time-series data of the foreign exchange rate between USD to one Euro starting from `1999-01-04`. 
  
-The values within the data field labeled `DEXUSEU` represent the value of USD to one Euro in `U.S. Dollars to One Euro` at the time of the corresponding `DATE` field. Values are based on seasonally adjusted annual rate.
+The values within the data field labeled `DEXUSEU` represent the value of USD to one Euro in `U.S. Dollars to One Euro` at the time of the corresponding `DATE` field. Values are not seasonally adjusted.
 
 ### Data Source
 This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
