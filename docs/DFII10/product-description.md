@@ -19,7 +19,7 @@ This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred
   - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
 - Dataset Page: [10-Year Treasury Inflation-Indexed Security, Constant Maturity (DFII10) | FRED](https://fred.stlouisfed.org/series/DFII10)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
-- Frequency: Monthly
+- Frequency: Daily
 - Format: CSV
 
 ### Contact Details
