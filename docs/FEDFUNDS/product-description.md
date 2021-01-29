@@ -6,7 +6,7 @@ The source code outlining how this product gathers, transforms, revises and publ
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
 `DATE`, `FEDFUNDS`
 
-This dataset contains a historical time-series data of EEffective Federal Funds Rate (FEDFUNDS), which is the interest rate depository institutions(i.e. banks) charge each other overnight starting from `1954-07-01`. 
+This dataset contains a historical time-series data of EEffective Federal Funds Rate (FEDFUNDS), which is the interest rate depository institutions(i.e. banks) charge one another for federal funds overnight starting from `1954-07-01`. 
  
 The values within the data field labeled `FEDFUNDS` represent the federal funds rate in `Percent` at the time of the corresponding `DATE` field. Values are not seasonally adjusted.
 
