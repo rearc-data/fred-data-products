@@ -6,9 +6,9 @@ The source code outlining how this product gathers, transforms, revises and publ
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
 `DATE`, `GFDEBTN`
 
-This dataset contains a historical time-series data of U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Private Housing Units Authorized by Building Permits (PERMIT) starting from `1966-01-01`. 
+This dataset contains a historical time-series data of Federal Debt: Total Public Debt (GFDEBTN) starting from `1966-01-01`. 
  
-The values within the data field labeled `GFDEBTN` represent the total number of new building permits for private housing units in the US in `Thausands of Units` at the time of the corresponding `DATE` field. Values are not seasonally adjusted.
+The values within the data field labeled `GFDEBTN` represent the total debt of the US federal government in `Millions of Dollars` at the time of the corresponding `DATE` field. Values are not seasonally adjusted.
 
 ### Data Source
 This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
