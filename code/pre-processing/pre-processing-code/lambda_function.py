@@ -70,6 +70,27 @@ def start_change_set(describe_entity_response, revision_arn):
 
 	response = marketplace.start_change_set(
 		Catalog='AWSMarketplace', ChangeSet=change_set)
+
+  CHANGE_SET_RETRIES = 5
+	i = 0
+	while i < CHANGE_SET_RETRIES:
+		time.sleep(1)
+		change_set_id = response['change_set_id']
+		
+		describe_change_set = marketplace.describe_change_set(
+				Catalog='AWSMarketplace', ChangeSet=change_set_id)
+		
+		describe_change_set_status = describe_change_set['status']
+		
+		if describe_change_set_status == 'SUCCEEDED':
+				break 
+		
+		if describe_change_set_status == 'FAILED' and i >= CHANGE_SET_RETRIES:
+				raise Exception("#{}\n#{}".format(describe_change_set["failure_description"], describe_change_set["change_set"]["first"]["error_detail_list"].join()))
+       
+		i += 1
+
+
 	return response
 
 

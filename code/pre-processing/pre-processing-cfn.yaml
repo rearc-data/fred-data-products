@@ -20,13 +20,13 @@ Parameters:
     Type: String
     Default: us-east-1
     Description: AWS Region for AWS Data Exchange
-  Schedule:
-    Type: String
-    Default: "cron(45 7 ? * 6 *)"
-    Description: Cron Expression for the Lambda Run Schedule
   SourceURL:
     Type: String
     Description: Source URL for Data File Download (only single file datasets)
+  ScheduleCron:
+    Type: String
+    Default: "cron(0 3 * * ? *)"
+    Description: Cron Expression for the Lambda Run Schedule
 
 Resources:
 # Create an IAM role for Lambda to use
@@ -47,6 +47,7 @@ Resources:
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
         - arn:aws:iam::796406704065:policy/AWSDataExchangeService
         - arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess
+        - arn:aws:iam::aws:policy/AmazonSNSFullAccess
       Path: /
 
 # Create a Lambda function that will update daily revisions to AWS Data Exchange dataset
@@ -94,7 +95,7 @@ Resources:
     Type: AWS::Events::Rule
     Properties:
       Description: "ScheduledRule"
-      ScheduleExpression: ${Schedule}
+      ScheduleExpression: !Sub ${ScheduleCron}
       State: "ENABLED"
       Targets:
         -
@@ -115,6 +116,20 @@ Resources:
         Fn::GetAtt:
           - "ScheduledRule"
           - "Arn"
+  version:
+    Type: AWS::Lambda::Version
+    Properties:
+      FunctionName: !Ref "LambdaFunction"
+  asyncconfig:
+    Type: AWS::Lambda::EventInvokeConfig
+    Properties:
+      DestinationConfig:
+          OnFailure:
+            Destination: arn:aws:sns:us-east-1:796406704065:adx-lambda-error
+      FunctionName: !Ref "LambdaFunction"
+      MaximumEventAgeInSeconds: 300
+      MaximumRetryAttempts: 1
+      Qualifier: $LATEST
 
 Outputs:
   LambdaRoleARN:

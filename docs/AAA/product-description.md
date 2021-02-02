@@ -6,7 +6,7 @@ The source code outlining how this product gathers, transforms, revises and publ
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
 `DATE`, `AAA`
 
-This dataset contains a historical time-series data of Moody's Seasoned Aaa Corporate Bond Yield (AAA)	starting from `1919-01-01.`
+This dataset contains a historical time-series data of Moody's Seasoned Aaa Corporate Bond Yield (AAA) starting from `1919-01-01.`
  
 The values within the data field labeled `AAA` represent the bond yield in `Percent` at the time of the corresponding `DATE` field. The numbers are based on bonds with maturities 20 years and above.
 
@@ -23,7 +23,7 @@ This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred
 - Format: CSV
 
 ### Contact Details
-- If you find any issues with or have enhancement ideas for this product, open up a GitHub [issue](https://github.com/rearc-data/fred-permit/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
+- If you find any issues with or have enhancement ideas for this product, open up a GitHub [issue](https://github.com/rearc-data/fred-data-products/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
 - If you are looking for specific open datasets currently not available on ADX, please submit a request on our project board [here](https://github.com/orgs/rearc-data/projects/1).
 - If you have questions about the source data, please contact [FRED](https://fred.stlouisfed.org/contactus/).
 - If you have any other questions or feedback, send us an email at data@rearc.io.

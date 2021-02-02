@@ -19,6 +19,11 @@ while [[ $# -gt 0 ]]; do
   shift;
   current_arg="$1"
   case ${opt} in
+    "--products_info_file") export products_info_file="$1"; shift;;
+    "--product_code") export PRODUCT_CODE="$1"; shift;;
+    "--product_url") export PRODUCT_URL="$1"; shift;;
+    "-s"|"--source_url") export SOURCE_URL="$1"; shift;;
+    "-s"|"--schedule_cron") export SCHEDULE_CRON="$1"; shift;;
     "-s"|"--s3-bucket") export S3_BUCKET="$1"; shift;;
     "-d"|"--dataset-name") export DATASET_NAME="$1"; shift;;
     "-p"|"--product-name") export PRODUCT_NAME="$1"; shift;;
@@ -47,27 +52,29 @@ while [[ ${#PRODUCT_NAME} -gt 72 ]]; do
     esac
 done
 
-#creating a pre-processing zip package, these commands may need to be adjusted depending on folder structure and dependencies
-(cd pre-processing/pre-processing-code && zip -r pre-processing-code.zip . -x "*.dist-info/*" -x "bin/*" -x "**/__pycache__/*")
+echo  "creating a pre-processing zip package, these commands may need to be adjusted depending on folder structure and dependencies"
+(cd code/pre-processing/pre-processing-code && zip -r pre-processing-code.zip . -x "*.dist-info/*" -x "bin/*" -x "**/__pycache__/*")
 
 #upload pre-preprocessing.zip to s3
 echo "uploading pre-preprocessing.zip to s3"
-aws s3 cp pre-processing/pre-processing-code/pre-processing-code.zip s3://$S3_BUCKET/$DATASET_NAME/automation/pre-processing-code.zip --region "$REGION$PROFILE"
+aws s3 cp code/pre-processing/pre-processing-code/pre-processing-code.zip s3://$S3_BUCKET/$DATASET_NAME/automation/pre-processing-code.zip --region "$REGION" $PROFILE
 
 #creating dataset on ADX
 echo "creating dataset on ADX"
-DATASET_COMMAND="aws dataexchange create-data-set --asset-type "S3_SNAPSHOT" --description file://dataset-description.md --name \"${PRODUCT_NAME}\" --region $REGION --output json $PROFILE"
+DATASET_COMMAND="aws dataexchange create-data-set --asset-type "S3_SNAPSHOT" --description file://docs/$PRODUCT_CODE/dataset-description.md --name \"${PRODUCT_NAME}\" --region $REGION --output json $PROFILE"
 DATASET_OUTPUT=$(eval $DATASET_COMMAND)
 DATASET_ARN=$(echo $DATASET_OUTPUT | tr '\r\n' ' ' | jq -r '.Arn')
 DATASET_ID=$(echo $DATASET_OUTPUT | tr '\r\n' ' ' | jq -r '.Id')
 
+echo "{\"PRODUCT_CODE\": \"${PRODUCT_CODE}\",\"PRODUCT_URL\": \"${PRODUCT_URL}\",\"SOURCE_URL\": \"${SOURCE_URL}\",\"DATASET_NAME\": \"${DATASET_NAME}\", \"DATASET_ARN\": \"${DATASET_ARN}\", \"DATASET_ID\":\"${DATASET_ID}\", \"PRODUCT_NAME\": \"${PRODUCT_NAME}\", \"PRODUCT_ID\": \"${PRODUCT_ID}\", \"SCHEDULE_CRON\": \"${SCHEDULE_CRON}\"}" >> "$products_info_file"
+
 #creating pre-processing cloudformation stack
 echo "creating pre-processing cloudformation stack"
 CFN_STACK_NAME="producer-${DATASET_NAME}-preprocessing"
-aws cloudformation create-stack --stack-name "$CFN_STACK_NAME" --template-body file://pre-processing/pre-processing-cfn.yaml --parameters ParameterKey=S3Bucket,ParameterValue="$S3_BUCKET" ParameterKey=DataSetName,ParameterValue="$DATASET_NAME" ParameterKey=DataSetArn,ParameterValue="$DATASET_ARN" ParameterKey=ProductId,ParameterValue="$PRODUCT_ID" ParameterKey=Region,ParameterValue="$REGION" --region "$REGION" --capabilities "CAPABILITY_AUTO_EXPAND" "CAPABILITY_NAMED_IAM" "CAPABILITY_IAM" $PROFILE
+aws cloudformation create-stack --stack-name "$CFN_STACK_NAME" --template-body file://code/pre-processing/pre-processing-cfn.yaml --parameters ParameterKey=S3Bucket,ParameterValue="$S3_BUCKET" ParameterKey=DataSetName,ParameterValue="$DATASET_NAME" ParameterKey=DataSetArn,ParameterValue="$DATASET_ARN" ParameterKey=ProductId,ParameterValue="$PRODUCT_ID" ParameterKey=Region,ParameterValue="$REGION" ParameterKey=SourceURL,ParameterValue="$SOURCE_URL" ParameterKey=ScheduleCron,ParameterValue="'$SCHEDULE_CRON'" --region "$REGION" --capabilities "CAPABILITY_AUTO_EXPAND" "CAPABILITY_NAMED_IAM" "CAPABILITY_IAM" $PROFILE
 
 echo "waiting for cloudformation stack to complete"
-aws cloudformation wait stack-create-complete --stack-name "$CFN_STACK_NAME" --region "$REGION" $PROFILE
+aws cloudformation wait stack-create-complete --stack-name "$CFN_STACK_NAME" --region "$REGION" "$PROFILE"
 
 if [[ $? -ne 0 ]]
 then
@@ -93,16 +100,16 @@ update () {
   
   # Cloudformation stack update
   echo "updating pre-processing cloudformation stack"
-  aws cloudformation update-stack --stack-name "$CFN_STACK_NAME" --use-previous-template --parameters ParameterKey=S3Bucket,ParameterValue="$S3_BUCKET" ParameterKey=DataSetName,ParameterValue="$DATASET_NAME" ParameterKey=DataSetArn,ParameterValue="$DATASET_ARN" ParameterKey=ProductId,ParameterValue="$NEW_PRODUCT_ID" ParameterKey=Region,ParameterValue="$REGION" --region "$REGION" --capabilities "CAPABILITY_AUTO_EXPAND" "CAPABILITY_NAMED_IAM" "CAPABILITY_IAM" $PROFILE
+  aws cloudformation create-stack --stack-name "$CFN_STACK_NAME" --use-previous-template --parameters ParameterKey=S3Bucket,ParameterValue="$S3_BUCKET" ParameterKey=DataSetName,ParameterValue="$DATASET_NAME" ParameterKey=DataSetArn,ParameterValue="$DATASET_ARN" ParameterKey=ProductId,ParameterValue="$NEW_PRODUCT_ID" ParameterKey=Region,ParameterValue="$REGION" ParameterKey=SourceURL,ParameterValue="$SOURCE_URL" ParameterKey=ScheduleCron,ParameterValue="$SCHEDULE_CRON" --region "$REGION" --capabilities "CAPABILITY_AUTO_EXPAND" "CAPABILITY_NAMED_IAM" "CAPABILITY_IAM" $PROFILE
 
   echo "waiting for cloudformation stack update to complete"
-  aws cloudformation wait stack-update-complete --stack-name "$CFN_STACK_NAME" --region "$REGION $PROFILE"
+  aws cloudformation wait stack-update-complete --stack-name "$CFN_STACK_NAME" --region "$REGION" $PROFILE
 
-  if [[ $? -ne 0 ]]
-  then
+  if [[ $? -ne 0 ]]; then
     echo "Cloudformation stack update failed"
     break
   fi
+
   echo "cloudformation stack update completed"
 }
 
@@ -112,20 +119,16 @@ delete () {
 
   #check status of cloudformation stack delete action
   aws cloudformation wait stack-delete-complete --stack-name "$CFN_STACK_NAME" --region "$REGION" $PROFILE
-  if [[ $? -eq 0 ]]
-  then
-    # Cloudformation stack deleted
+  if [[ $? -eq 0 ]]; then
     echo "CloudFormation stack successfully deleted"
     break
   else
-    # Cloudformation stack deletion failed
     echo "Cloudformation stack deletion failed"
     exit 1
   fi
 }
 
-if [[ $DATASET_REVISION_STATUS == "true" ]]
-then
+if [[ $DATASET_REVISION_STATUS == "true" ]]; then
   echo "Dataset revision completed successfully"
   echo ""
 
@@ -145,7 +148,6 @@ then
   echo "DataSetName: $DATASET_NAME"
   echo "DataSetArn: $DATASET_ARN"
   echo "Region: $REGION"
-  echo "S3Bucket: $S3_BUCKET"
   echo ""
   echo "For the ProductId param use the Product ID of the ADX product"
 
