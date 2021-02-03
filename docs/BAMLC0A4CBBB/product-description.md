@@ -1,6 +1,6 @@
-## ICE BofA BBB US Corporate Index Option-Adjusted Spread (BAMLC0A4CBBB)	
+## ICE BofA BBB US Corporate Index Option-Adjusted Spread (BAMLC0A4CBBB) | FRED
 
-The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-permit](https://github.com/rearc-data/fred-permit).
+The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-data-products](https://github.com/rearc-data/fred-data-products).
 
 ### Main Overview
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
@@ -10,20 +10,26 @@ This dataset contains a historical time-series data of starting ICE BofA BBB US 
  
 The values within the data field labeled `BAMLC0A4CBBB` represent the Option-Adjusted Spread (OAS) in `Percent` at the time of the corresponding `DATE` field. Values are not seasonally adjusted.
 
+This data represents the Option-Adjusted Spread (OAS) of the ICE BofA BBB US Corporate Index, a subset of the ICE BofA US Corporate Master Index tracking the performance of US dollar denominated investment grade rated corporate debt publicly issued in the US domestic market. This subset includes all securities with a given investment grade rating BBB.
+The ICE BofA OASs are the calculated spreads between a computed OAS index of all bonds in a given rating category and a spot Treasury curve. An OAS index is constructed using each constituent bond's OAS, weighted by market capitalization. When the last calendar day of the month takes place on the weekend, weekend observations will occur as a result of month ending accrued interest adjustments.
+
+The index data referenced herein is the property of ICE Data Indices, LLC, its affiliates, ("ICE") and/or its Third Party Suppliers and has been licensed for use by the Federal Reserve Bank of St. Louis. ICE, its affiliates and Third Party Suppliers accept no liability in connection with its use.
+
 ### Data Source
 This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
 
 ### More Information
 - Source: 
   - [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org)
-  - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
-- Dataset Page: [ICE BofA BBB US Corporate Index Option-Adjusted Spread (BAMLC0A4CBBB)](https://fred.stlouisfed.org/series/BAMLC0A4CBBB)
+  - [Ice Data Indices, LLC](https://www.theice.com/market-data/indices)
+  - [ICE BofA Indices](https://www.theice.com/market-data/indices)
+- Dataset Page: [Ice Data Indices, LLC, ICE BofA BBB US Corporate Index Option-Adjusted Spread (BAMLC0A4CBBB)](https://fred.stlouisfed.org/series/BAMLC0A4CBBB)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
 - Frequency: Daily
 - Format: CSV
 
 ### Contact Details
-- If you find any issues with or have enhancement ideas for this product, open up a GitHub [issue](https://github.com/rearc-data/fred-permit/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
+- If you find any issues with or have enhancement ideas for this product, open up a GitHub [issue](https://github.com/rearc-data/fred-data-products/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
 - If you are looking for specific open datasets currently not available on ADX, please submit a request on our project board [here](https://github.com/orgs/rearc-data/projects/1).
 - If you have questions about the source data, please contact [FRED](https://fred.stlouisfed.org/contactus/).
 - If you have any other questions or feedback, send us an email at data@rearc.io.
