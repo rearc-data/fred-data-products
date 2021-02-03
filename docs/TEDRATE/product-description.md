@@ -8,7 +8,7 @@ The dataset file included with this product is provided in CSV format. The inclu
  
 This dataset contains a historical time-series data of the TED Spread (TEDRATE) starting from `1986-01-02`. 
 
-The values within the data field labeled `TEDRATE` represent the spread between [3-Month LIBOR based on US dollars (USD3MTD156N)](https://fred.stlouisfed.org/series/USD3MTD156N) and [3-Month Treasury Bill (DTB3)](https://fred.stlouisfed.org/series/DTB3) the spread between 3-Month LIBOR based on US dollars (USD3MTD156N) and 3-Month Treasury Bill (DTB3) at the time of the corresponding `DATE` field. The unit of the data field is Percent and the values are not seasonally adjusted.
+The values within the data field labeled `TEDRATE` represent the spread between [3-Month LIBOR based on US dollars (USD3MTD156N)](https://fred.stlouisfed.org/series/USD3MTD156N) and [3-Month Treasury Bill (DTB3)](https://fred.stlouisfed.org/series/DTB3) at the time of the corresponding `DATE` field. The unit of the data field is Percent and the values are not seasonally adjusted.
 
 The series is lagged by one week because the LIBOR series is lagged by one week due to an agreement with the source.
 Starting with the update on June 21, 2019, the Treasury bond data used in calculating interest rate spreads is obtained directly from the [U.S. Treasury Department](https://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield).
