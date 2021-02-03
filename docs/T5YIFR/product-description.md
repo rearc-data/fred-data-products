@@ -1,31 +1,37 @@
-## New Private Housing Units Authorized by Building Permits (PERMIT) | FRED
+## 5-Year, 5-Year Forward Inflation Expectation Rate (T5YIFR) | FRED
 
-The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-permit](https://github.com/rearc-data/fred-permit).
+The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-data-products](https://github.com/rearc-data/fred-data-products).
 
 ### Main Overview
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
-`DATE`, `PERMIT`
-
-This dataset contains a historical time-series data of U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Private Housing Units Authorized by Building Permits (PERMIT) starting from `1960-01-01`. 
+`DATE`, `T5YIFR`
  
-The values within the data field labeled `PERMIT` represent the total number of new building permits for private housing units in the US in `Thausands of Units` at the time of the corresponding `DATE` field. Values are based on seasonally adjusted annual rate.
+This dataset contains a historical time-series data of the 5-Year, 5-Year Forward Inflation Expectation Rate (T5YIFR) starting from `2003-01-02`. 
 
-Starting with the `2005-02-16` release, the series reflects an increase in the universe of permit-issuing places from 19,000 to 20,000 places.
+The values within the data field labeled `T5YIFR` represent a measure of expected inflation (on average) over the five-year period that begins five years from today at the time of the corresponding `DATE` field. The unit of the data field is Percent and the values are not seasonally adjusted.
+
+This series is constructed as:
+
+`(((((1+((BC_10YEAR-TC_10YEAR)/100))^10)/((1+((BC_5YEAR-TC_5YEAR)/100))^5))^0.2)-1)*100`
+
+where `BC10_YEAR`, `TC_10YEAR`, `BC_5YEAR`, and `TC_5YEAR` are the 10 year and 5 year nominal and inflation adjusted Treasury securities. All of those are the actual series IDs in FRED.
+
+Starting with the update on June 21, 2019, the Treasury bond data used in calculating interest rate spreads is obtained directly from the U.S. Treasury Department.
 
 ### Data Source
-This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
+This dataset is provided by the [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org) and published by the [Federal Reserve Bank of St. Louis Economic Data](https://fred.stlouisfed.org/).
 
 ### More Information
 - Source: 
   - [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org)
-  - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
-- Dataset Page: [New Private Housing Units Authorized by Building Permits (PERMIT) | FRED](https://fred.stlouisfed.org/series/PERMIT)
+  - [Federal Reserve Bank of St. Louis Economic Data](https://fred.stlouisfed.org/)
+- Dataset Page: [Federal Reserve Bank of St. Louis, 5-Year, 5-Year Forward Inflation Expectation Rate (T5YIFR)](https://fred.stlouisfed.org/series/T5YIFR)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
-- Frequency: Monthly
+- Frequency: Daily
 - Format: CSV
 
 ### Contact Details
-- If you find any issues with or have enhancement ideas for this product, open up a GitHub [issue](https://github.com/rearc-data/fred-permit/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
+- If you find any issues with or have enhancement ideas for this product, open up a GitHub [issue](https://github.com/rearc-data/fred-data-products/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
 - If you are looking for specific open datasets currently not available on ADX, please submit a request on our project board [here](https://github.com/orgs/rearc-data/projects/1).
 - If you have questions about the source data, please contact [FRED](https://fred.stlouisfed.org/contactus/).
 - If you have any other questions or feedback, send us an email at data@rearc.io.
