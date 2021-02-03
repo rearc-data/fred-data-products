@@ -11,7 +11,7 @@ This dataset contains a historical time-series data of Moody's Seasoned Baa Corp
 The values within the data field labeled `BAA10Y` represent the bond yield in `Percent` at the time of the corresponding `DATE` field. Values are calculated by the spread between [Moody's Seasoned Baa Corporate Bond](https://fred.stlouisfed.org/series/DBAA) and [10-Year Treasury Constant Maturity](https://fred.stlouisfed.org/series/BC_10YEAR). The values are not seasonally adjusted.
 
 ### Data Source
-This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
+This dataset is provided by the [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org) and published by the [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/).
 
 ### More Information
 - Source: 

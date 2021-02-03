@@ -16,7 +16,7 @@ The ICE BofA OASs are the calculated spreads between a computed OAS index of all
 The index data referenced herein is the property of ICE Data Indices, LLC, its affiliates, ("ICE") and/or its Third Party Suppliers and has been licensed for use by the Federal Reserve Bank of St. Louis. ICE, its affiliates and Third Party Suppliers accept no liability in connection with its use.
 
 ### Data Source
-This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
+This dataset is provided by the [Ice Data Indices, LLC](https://www.theice.com/market-data/indices) and published by the [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/).
 
 ### More Information
 - Source: 

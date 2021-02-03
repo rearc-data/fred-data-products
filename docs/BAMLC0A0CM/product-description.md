@@ -16,7 +16,7 @@ This data represents the ICE BofA US Corporate Index value, which tracks the per
 domestic bond markets), 144a securities and pay-in-kind securities, including toggle notes, qualify for inclusion in the Index. Callable perpetual securities qualify provided they are at least one year from the first call date. Fixed-to-floating rate securities also qualify provided they are callable within the fixed rate period and are at least one year from the last call prior to the date the bond transitions from a fixed to a floating rate security. DRD-eligible and defaulted securities are excluded from the Index.
 
 ### Data Source
-This dataset is provided by the [Ice Data Indices, LLC](https://www.theice.com/market-data/indices) and published by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
+This dataset is provided by the [Ice Data Indices, LLC](https://www.theice.com/market-data/indices) and published by the [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/).
 
 ### More Information
 - Source: 

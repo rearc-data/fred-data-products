@@ -1,4 +1,4 @@
-## ICE BofA BBB US Corporate Index Effective Yield (BAMLC0A4CBBBEY)	| FRED
+## ICE BofA BBB US Corporate Index Effective Yield (BAMLC0A4CBBBEY) | FRED
 
 The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-data-products](https://github.com/rearc-data/fred-data-products).
 
@@ -10,22 +10,25 @@ This dataset contains a historical time-series data of U.S. Census Bureau and U.
  
 The values within the data field labeled `BAMLC0A4CBBBEY` represent the effective yield of the ICE BofA BBB US Corporate Index in `Percent` at the time of the corresponding `DATE` field. Values are not seasonally adjusted.
 
-Starting with the `1996-12-31` release, the series reflects an increase in the universe of permit-issuing places from 19,000 to 20,000 places.
+This data represents the effective yield of the ICE BofA BBB US Corporate Index, a subset of the ICE BofA US Corporate Master Index tracking the performance of US dollar denominated investment grade rated corporate debt publicly issued in the US domestic market. This subset includes all securities with a given investment grade rating BBB. When the last calendar day of the month takes place on the weekend, weekend observations will occur as a result of month ending accrued interest adjustments.
+
+The index data referenced herein is the property of ICE Data Indices, LLC, its affiliates, ("ICE") and/or its Third Party Suppliers and has been licensed for use by the Federal Reserve Bank of St. Louis. ICE, its affiliates and Third Party Suppliers accept no liability in connection with its use.
 
 ### Data Source
-This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
+This dataset is provided by the [Ice Data Indices, LLC](https://www.theice.com/market-data/indices) and published by the [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/). 
 
 ### More Information
 - Source: 
   - [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org)
-  - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
-- Dataset Page: [ICE BofA BBB US Corporate Index Effective Yield (BAMLC0A4CBBBEY)	 | FRED](https://fred.stlouisfed.org/series/BAMLC0A4CBBBEY)
+  - [Ice Data Indices, LLC](https://www.theice.com/market-data/indices)
+  - [ICE BofA Indices](https://www.theice.com/market-data/indices)
+- Dataset Page: [Ice Data Indices, LLC, ICE BofA BBB US Corporate Index Effective Yield (BAMLC0A4CBBBEY)](https://fred.stlouisfed.org/series/BAMLC0A4CBBBEY)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
 - Frequency: Daily
 - Format: CSV
 
 ### Contact Details
-- If you find any issues with or have enhancement ideas for this product, open up a GitHub [issue](https://github.com/rearc-data/fred-permit/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
+- If you find any issues with or have enhancement ideas for this product, open up a GitHub [issue](https://github.com/rearc-data/fred-data-products/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
 - If you are looking for specific open datasets currently not available on ADX, please submit a request on our project board [here](https://github.com/orgs/rearc-data/projects/1).
 - If you have questions about the source data, please contact [FRED](https://fred.stlouisfed.org/contactus/).
 - If you have any other questions or feedback, send us an email at data@rearc.io.
