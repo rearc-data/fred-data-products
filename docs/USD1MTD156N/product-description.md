@@ -1,7 +1,5 @@
 ## 1-Month London Interbank Offered Rate (LIBOR), based on U.S. Dollar (USD1MTD156N) | FRED
 
-3-Month London Interbank Offered Rate (LIBOR), based on U.S. Dollar (USD3MTD156N) | FRED
-
 The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-data-products](https://github.com/rearc-data/fred-data-products).
 
 ### Main Overview
