@@ -10,6 +10,8 @@ This dataset contains a historical time-series data of 15-Year Fixed Rate Mortga
  
 The values within the data field labeled `MORTGAGE15US` represent the 15-year fixed rate mortgage average in `Percent` at the time of the corresponding `DATE` field. Values are not seasonally adjusted.
 
+Data is provided "as is," with no warranties of any kind, express or implied, including, but not limited to, warranties of accuracy or implied warranties of merchantability or fitness for a particular purpose. Use of the data is at the user's sole risk. In no event will Freddie Mac be liable for any damages arising out of or related to the data, including, but not limited to direct, indirect, incidental, special, consequential, or punitive damages, whether under a contract, tort, or any other theory of liability, even if Freddie Mac is aware of the possibility of such damages.
+
 ### Data Source
 This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED) and published by [Freddie Mac](http://www.freddiemac.com/).
 
@@ -18,9 +20,9 @@ This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred
   - [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org)
   - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
   - [Freddie Mac](http://www.freddiemac.com/)
-- Dataset Page: [15-Year Fixed Rate Mortgage Average in the United States (MORTGAGE15US) | FRED](https://fred.stlouisfed.org/series/MORTGAGE15US)
+- Dataset Page: [Freddie Mac, 15-Year Fixed Rate Mortgage Average in the United States (MORTGAGE15US)](https://fred.stlouisfed.org/series/MORTGAGE15US)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
-- Frequency: Weekly
+- Frequency: Weekly, Ending Thursday
 - Format: CSV
 
 ### Contact Details
