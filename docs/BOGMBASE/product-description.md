@@ -1,4 +1,4 @@
-## Monetary Base: Total (BOGMBASE) | FRED
+## Monetary Base; Total (BOGMBASE) | FRED
 
 The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-data-products](https://github.com/rearc-data/fred-data-products).
 
@@ -10,14 +10,17 @@ This dataset contains a historical time-series data of the total Monetary Base i
  
 The values within the data field labeled `BOGMBASE` represent the total amount of currency in circulation and reserves in the US in `Millions of Dollars` at the time of the corresponding `DATE` field. Values are not seasonally adjusted.
 
+The Board of Governors consolidated this series onto the Statistical Release H.6, "Money Stock Measures", after the H.3 statistical release was discontinued. For more information on the consolidated H.6 release, see the [H.6 Technical Q&As](https://www.federalreserve.gov/releases/h6/h6_technical_qa.htm).
+
 ### Data Source
-This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
+This dataset is provided by [Board of Governors of the Federal Reserve System (US)](http://www.federalreserve.gov/) and published by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
 
 ### More Information
 - Source: 
-  - [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org)
   - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
-- Dataset Page: [Monetary Base: Total (BOGMBASE) | FRED](https://fred.stlouisfed.org/series/BOGMBASE)
+  - [Board of Governors of the Federal Reserve System (US)](http://www.federalreserve.gov/)
+  - [H.6 Money Stock Measures](http://www.federalreserve.gov/releases/h6/)
+- Dataset Page: [Board of Governors of the Federal Reserve System (US), Monetary Base; Total (BOGMBASE)](https://fred.stlouisfed.org/series/BOGMBASE)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
 - Frequency: Monthly
 - Format: CSV
