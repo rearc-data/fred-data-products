@@ -1,31 +1,38 @@
-## New Private Housing Units Authorized by Building Permits (PERMIT) | FRED
+## 1-Month London Interbank Offered Rate (LIBOR), based on U.S. Dollar (USD1MTD156N) | FRED
 
-The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-permit](https://github.com/rearc-data/fred-permit).
+3-Month London Interbank Offered Rate (LIBOR), based on U.S. Dollar (USD3MTD156N) | FRED
+
+The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-data-products](https://github.com/rearc-data/fred-data-products).
 
 ### Main Overview
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
-`DATE`, `PERMIT`
+`DATE`, `USD1MTD156N`
 
-This dataset contains a historical time-series data of U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Private Housing Units Authorized by Building Permits (PERMIT) starting from `1960-01-01`. 
+This dataset contains a historical time-series data of the 1-Month London Interbank Offered Rate (LIBOR), based on U.S. Dollar (USD1MTD156N) starting from `1986-01-02`. 
  
-The values within the data field labeled `PERMIT` represent the total number of new building permits for private housing units in the US in `Thausands of Units` at the time of the corresponding `DATE` field. Values are based on seasonally adjusted annual rate.
+The values within the data field labeled `USD1MTD156N` represent the percentage of 1-month LIBOR based on USD at the time of the corresponding `DATE` field. Values are not seasonally adjusted.
 
-Starting with the `2005-02-16` release, the series reflects an increase in the universe of permit-issuing places from 19,000 to 20,000 places.
+The data series is lagged by one week due to an agreement with the source.
+London Interbank Offered Rate is the average interest rate at which leading banks borrow funds of a sizeable amount from other banks in the London market. Libor is the most widely used "benchmark" or reference rate for short term interest rates
+
+In consideration for ICE Benchmark Administration Limited ("IBA") coordinating and the Libor Contributor Banks supplying the data from which ICE LIBOR is compiled, the subscriber acknowledges and agrees that, to the fullest extent permitted by law, none of the IBA or the LIBOR Contributor Banks:
+(1) accept any responsibility or liability for the frequency of provision and accuracy of the ICE LIBOR rate or any use made of the ICE LIBOR rate by the subscriber, whether or not arising from the negligence of any of IBA or the LIBOR Contributor Banks; or
+(2) shall be liable for any loss of business or profits nor any direct, indirect or consequential loss or damage resulting from any such irregularity, inaccuracy or use of the Information.
 
 ### Data Source
-This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
+This dataset is provided by [ICE Benchmark Administration Limited (IBA)](https://www.theice.com/iba) and published by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/). 
 
 ### More Information
 - Source: 
   - [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org)
-  - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
-- Dataset Page: [New Private Housing Units Authorized by Building Permits (PERMIT) | FRED](https://fred.stlouisfed.org/series/PERMIT)
+  - [ICE Benchmark Administration Limited (IBA)](https://www.theice.com/iba)
+- Dataset Page: [ICE Benchmark Administration Limited (IBA), 1-Month London Interbank Offered Rate (LIBOR), based on U.S. Dollar (USD1MTD156N) | FRED](https://fred.stlouisfed.org/series/USD1MTD156N)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
-- Frequency: Monthly
+- Frequency: Daily
 - Format: CSV
 
 ### Contact Details
-- If you find any issues with or have enhancement ideas for this product, open up a GitHub [issue](https://github.com/rearc-data/fred-permit/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
+- If you find any issues with or have enhancement ideas for this product, open up a GitHub [issue](https://github.com/rearc-data/fred-data-products/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
 - If you are looking for specific open datasets currently not available on ADX, please submit a request on our project board [here](https://github.com/orgs/rearc-data/projects/1).
 - If you have questions about the source data, please contact [FRED](https://fred.stlouisfed.org/contactus/).
 - If you have any other questions or feedback, send us an email at data@rearc.io.

@@ -9,7 +9,7 @@ This repository contains code and documentation for data products retrieved from
 
 You can subscribe to the FRED products represenmted in this repository by following the links provided below. Please note that name of products on ADX may differ slightly from what is represented below due to character count limitations.
 
-1. **Moody's Seasoned Aaa Corporate Bond Yield (AAA)	| FRED**
+1. **Moody's Seasoned Aaa Corporate Bond Yield (AAA) | FRED**
 [https://aws.amazon.com/marketplace/pp/prodview-](https://aws.amazon.com/marketplace/pp/prodview-)
 
 2. **Moody's Seasoned Baa Corporate Bond Yield Relative to Yield on 10-Year Treasury Constant Maturity (BAA10Y) | FRED**
