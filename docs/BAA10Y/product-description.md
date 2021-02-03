@@ -8,7 +8,7 @@ The dataset file included with this product is provided in CSV format. The inclu
 
 This dataset contains a historical time-series data of Moody's Seasoned Baa Corporate Bond Yield Relative to Yield on 10-Year Treasury Constant Maturity starting from `1986-01-02`. 
  
-The values within the data field labeled `BAA10Y` represent the bond yield in `Percent` at the time of the corresponding `DATE` field. Values are calculated by the spread between [Moody's Seasoned Baa Corporate Bond](https://fred.stlouisfed.org/series/DBAA) and [10-Year Treasury Constant Maturity](https://fred.stlouisfed.org/series/BC_10YEAR)
+The values within the data field labeled `BAA10Y` represent the bond yield in `Percent` at the time of the corresponding `DATE` field. Values are calculated by the spread between [Moody's Seasoned Baa Corporate Bond](https://fred.stlouisfed.org/series/DBAA) and [10-Year Treasury Constant Maturity](https://fred.stlouisfed.org/series/BC_10YEAR). The values are not seasonally adjusted.
 
 ### Data Source
 This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
@@ -17,7 +17,7 @@ This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred
 - Source: 
   - [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org)
   - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
-- Dataset Page: [Moody's Seasoned Baa Corporate Bond Yield Relative to Yield on 10-Year Treasury Constant Maturity (BAA10Y) | FRED](https://fred.stlouisfed.org/series/BAA10Y)
+- Dataset Page: [Moody's Seasoned Baa Corporate Bond Yield Relative to Yield on 10-Year Treasury Constant Maturity (BAA10Y)](https://fred.stlouisfed.org/series/BAA10Y)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
 - Frequency: Daily
 - Format: CSV
