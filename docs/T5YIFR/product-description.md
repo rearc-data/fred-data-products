@@ -16,7 +16,7 @@ This series is constructed as:
 
 where `BC10_YEAR`, `TC_10YEAR`, `BC_5YEAR`, and `TC_5YEAR` are the 10 year and 5 year nominal and inflation adjusted Treasury securities. All of those are the actual series IDs in FRED.
 
-Starting with the update on June 21, 2019, the Treasury bond data used in calculating interest rate spreads is obtained directly from the U.S. Treasury Department.
+Starting with the update on June 21, 2019, the Treasury bond data used in calculating interest rate spreads is obtained directly from the [U.S. Treasury Department](https://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield).
 
 ### Data Source
 This dataset is provided by the [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org) and published by the [Federal Reserve Bank of St. Louis Economic Data](https://fred.stlouisfed.org/).
