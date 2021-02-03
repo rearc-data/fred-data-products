@@ -1,4 +1,4 @@
-##  Inflation, consumer prices for the United States (FPCPITOTLZGUSA)	 | FRED
+##  Inflation, consumer prices for the United States (FPCPITOTLZGUSA) | FRED
 
 The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-data-products](https://github.com/rearc-data/fred-data-products).
 
