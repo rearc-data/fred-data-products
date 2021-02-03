@@ -8,7 +8,7 @@ The dataset file included with this product is provided in CSV format. The inclu
 
 This dataset contains a historical time-series data of S&P/Case-Shiller U.S. National Home Price Index starting from `1987-01-01`. 
  
-The values within the data field labeled `CSUSHPISA` represent the change in U.S. residential housing prices in `Index` where Jan 2000 = 100 at the time of the corresponding `DATE` field.
+The values within the data field labeled `CSUSHPISA` represent the change in U.S. residential housing prices in `Index` where Jan 2000 = 100 at the time of the corresponding `DATE` field. Values are seasonally adjusted.
 
 ### Data Source
 This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
