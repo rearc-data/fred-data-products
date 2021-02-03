@@ -8,7 +8,7 @@ The dataset file included with this product is provided in CSV format. The inclu
 
 This dataset contains a historical time-series data of Median Sales Price of Houses Sold for the United States (MSPUS) starting from `1963-01-01`. 
  
-The values within the data field labeled `MSPUS` represent the median sales price of houses sold in the US in `Dollars` at the time of the corresponding `DATE` field. Values are not seasonally adjusted.
+The values within the data field labeled `MSPUS` represent the median sales price of houses sold in the US in `Dollars` at the time of the corresponding `DATE` field. The unit of data column is Dollars and the values are not seasonally adjusted.
 
 ### Data Source
 This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
@@ -17,7 +17,7 @@ This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred
 - Source: 
   - [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org)
   - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
-- Dataset Page: [Median Sales Price of Houses Sold for the United States (MSPUS) | FRED](https://fred.stlouisfed.org/series/MSPUS)
+- Dataset Page: [U.S. Census Bureau and U.S. Department of Housing and Urban Development, Median Sales Price of Houses Sold for the United States (MSPUS)](https://fred.stlouisfed.org/series/MSPUS)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
 - Frequency: Quarterly
 - Format: CSV
