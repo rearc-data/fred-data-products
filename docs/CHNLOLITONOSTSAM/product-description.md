@@ -1,4 +1,4 @@
-##  Leading Indicators OECD: Leading indicators: CLI: Normalised for China (CHNLOLITONOSTSAM) | FRED
+## Leading Indicators OECD: Leading indicators: CLI: Normalised for China (CHNLOLITONOSTSAM) | FRED
 
 The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-data-products](https://github.com/rearc-data/fred-data-products).
 
