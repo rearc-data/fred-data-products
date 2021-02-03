@@ -1,31 +1,30 @@
-## New Private Housing Units Authorized by Building Permits (PERMIT) | FRED
+## Producer Price Index by Commodity: All Commodities (PPIACO) | FRED
 
-The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-permit](https://github.com/rearc-data/fred-permit).
+The source code outlining how this product gathers, transforms, revises and publishes its datasets is available at [https://github.com/rearc-data/fred-data-products](https://github.com/rearc-data/fred-data-products).
 
 ### Main Overview
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
-`DATE`, `PERMIT`
-
-This dataset contains a historical time-series data of U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Private Housing Units Authorized by Building Permits (PERMIT) starting from `1960-01-01`. 
+`DATE`, `PPIACO`
  
-The values within the data field labeled `PERMIT` represent the total number of new building permits for private housing units in the US in `Thausands of Units` at the time of the corresponding `DATE` field. Values are based on seasonally adjusted annual rate.
+This dataset contains a historical time-series data of the Personal Saving Rate (PSAVERT) starting from `1913-01-01`. 
 
-Starting with the `2005-02-16` release, the series reflects an increase in the universe of permit-issuing places from 19,000 to 20,000 places.
+The values within the data field labeled `PPIACO` represent the Personal Saving Rate at the time of the corresponding `DATE` field. The data column is based on Index 1982=100 and the values are not seasonally adjusted.
 
 ### Data Source
-This dataset is provided by the [Federal Reserve Bank of St. Louis](https://fred.stlouisfed.org/) Economic Data (FRED). 
+This dataset is provided by the [U.S. Bureau of Labor Statistics](https://www.bls.gov/) and published by the [Federal Reserve Bank of St. Louis Economic Data](https://fred.stlouisfed.org/).
 
 ### More Information
 - Source: 
   - [Federal Reserve Bank of St. Louis](https://www.stlouisfed.org)
-  - [Federal Reserve Bank of St. Louis Economic Data (FRED)](https://fred.stlouisfed.org/)
-- Dataset Page: [New Private Housing Units Authorized by Building Permits (PERMIT) | FRED](https://fred.stlouisfed.org/series/PERMIT)
+  - [U.S. Bureau of Labor Statistics](https://www.bls.gov/)
+  - [Producer Price Index](http://www.bls.gov/ppi/)
+- Dataset Page: [U.S. Bureau of Labor Statistics, Producer Price Index by Commodity: All Commodities (PPIACO)](https://fred.stlouisfed.org/series/PPIACO)
 - License: [FRED Terms Of Use FAQ](https://fred.stlouisfed.org/legal/)
 - Frequency: Monthly
 - Format: CSV
 
 ### Contact Details
-- If you find any issues with or have enhancement ideas for this product, open up a GitHub [issue](https://github.com/rearc-data/fred-permit/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
+- If you find any issues with or have enhancement ideas for this product, open up a GitHub [issue](https://github.com/rearc-data/fred-data-products/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
 - If you are looking for specific open datasets currently not available on ADX, please submit a request on our project board [here](https://github.com/orgs/rearc-data/projects/1).
 - If you have questions about the source data, please contact [FRED](https://fred.stlouisfed.org/contactus/).
 - If you have any other questions or feedback, send us an email at data@rearc.io.
