@@ -6,7 +6,7 @@ The source code outlining how this product gathers, transforms, revises and publ
 The dataset file included with this product is provided in CSV format. The included dataset contains the following columns: 
 `DATE`, `PALLFNFINDEXQ`
  
-This dataset contains a historical time-series data of the International Monetary Fund, Global Price Index of All Commodities (PALLFNFINDEXQ) starting from `1959-01-01`. 
+This dataset contains a historical time-series data of the International Monetary Fund, Global Price Index of All Commodities (PALLFNFINDEXQ) starting from `1992-01-01`. 
 
 The values within the data field labeled `PALLFNFINDEXQ` represent the benchmark prices which are representative of the global market at the time of the corresponding `DATE` field. They are determined by the largest exporter of a given commodity. Prices are period averages in nominal U.S. dollars. The data column is based on Index 2016 = 100 and the values are not seasonally adjusted.
 
