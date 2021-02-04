@@ -19,6 +19,7 @@ while [[ $# -gt 0 ]]; do
   shift;
   current_arg="$1"
   case ${opt} in
+    "--first_revision") export FIRST_REVISION="$1"; shift;;
     "--products_info_file") export products_info_file="$1"; shift;;
     "--product_code") export PRODUCT_CODE="$1"; shift;;
     "--product_url") export PRODUCT_URL="$1"; shift;;
@@ -66,7 +67,7 @@ DATASET_OUTPUT=$(eval $DATASET_COMMAND)
 DATASET_ARN=$(echo $DATASET_OUTPUT | tr '\r\n' ' ' | jq -r '.Arn')
 DATASET_ID=$(echo $DATASET_OUTPUT | tr '\r\n' ' ' | jq -r '.Id')
 
-echo "{\"PRODUCT_CODE\": \"${PRODUCT_CODE}\",\"PRODUCT_URL\": \"${PRODUCT_URL}\",\"SOURCE_URL\": \"${SOURCE_URL}\",\"DATASET_NAME\": \"${DATASET_NAME}\", \"DATASET_ARN\": \"${DATASET_ARN}\", \"DATASET_ID\":\"${DATASET_ID}\", \"PRODUCT_NAME\": \"${PRODUCT_NAME}\", \"PRODUCT_ID\": \"${PRODUCT_ID}\", \"SCHEDULE_CRON\": \"${SCHEDULE_CRON}\"}" >> "$products_info_file"
+echo "{\"PRODUCT_CODE\":\"${PRODUCT_CODE}\",\"PRODUCT_URL\":\"${PRODUCT_URL}\",\"SOURCE_URL\": \"${SOURCE_URL}\",\"DATASET_NAME\":\"${DATASET_NAME}\",\"DATASET_ARN\":\"${DATASET_ARN}\",\"DATASET_ID\":\"${DATASET_ID}\",\"PRODUCT_NAME\":\"${PRODUCT_NAME}\",\"PRODUCT_ID\":\"${PRODUCT_ID}\",\"SCHEDULE_CRON\":\"${SCHEDULE_CRON}\"}" >> "$products_info_file"
 
 #creating pre-processing cloudformation stack
 echo "creating pre-processing cloudformation stack"
@@ -121,7 +122,6 @@ delete () {
   aws cloudformation wait stack-delete-complete --stack-name "$CFN_STACK_NAME" --region "$REGION" $PROFILE
   if [[ $? -eq 0 ]]; then
     echo "CloudFormation stack successfully deleted"
-    break
   else
     echo "Cloudformation stack deletion failed"
     exit 1
@@ -132,18 +132,22 @@ if [[ $DATASET_REVISION_STATUS == "true" ]]; then
   echo "Dataset revision completed successfully"
   echo ""
 
-  while true; do
-      echo "Do you want use this script to update the CloudFormation stack? If you enter 'n' your CloudFormation stack will be destroyed:"
-      read -p "('y' to update / 'n' to destroy): " Y_N
-      case $Y_N in
-          [Yy]* ) update; exit;;
-          [Nn]* ) delete; break;;
-          * ) echo "Enter 'y' or 'n'.";;
-      esac
-  done
+  # while true; do
+  #     echo "Do you want use this script to update the CloudFormation stack? If you enter 'n' your CloudFormation stack will be destroyed:"
+  #     read -p "('y' to update / 'n' to destroy): " Y_N
+  #     case $Y_N in
+  #         [Yy]* ) update; exit;;
+  #         [Nn]* ) delete; break;;
+  #         * ) echo "Enter 'y' or 'n'.";;
+  #     esac
+  # done
+  if [[ "$FIRST_REVISION" == "true" ]]; then
+    delete;
+  fi
 
   echo "Manually create the ADX product and manually re-run the pre-processing CloudFormation template using the following params:"
   echo ""
+  echo "Dataset: $PRODUCT_CODE"
   echo "S3Bucket: $S3_BUCKET"
   echo "DataSetName: $DATASET_NAME"
   echo "DataSetArn: $DATASET_ARN"

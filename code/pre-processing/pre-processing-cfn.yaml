@@ -25,7 +25,6 @@ Parameters:
     Description: Source URL for Data File Download (only single file datasets)
   ScheduleCron:
     Type: String
-    Default: "cron(0 3 * * ? *)"
     Description: Cron Expression for the Lambda Run Schedule
 
 Resources:
@@ -116,10 +115,12 @@ Resources:
         Fn::GetAtt:
           - "ScheduledRule"
           - "Arn"
+
   version:
     Type: AWS::Lambda::Version
     Properties:
       FunctionName: !Ref "LambdaFunction"
+
   asyncconfig:
     Type: AWS::Lambda::EventInvokeConfig
     Properties:
@@ -128,7 +129,7 @@ Resources:
             Destination: arn:aws:sns:us-east-1:796406704065:adx-lambda-error
       FunctionName: !Ref "LambdaFunction"
       MaximumEventAgeInSeconds: 300
-      MaximumRetryAttempts: 1
+      MaximumRetryAttempts: 2
       Qualifier: $LATEST
 
 Outputs:

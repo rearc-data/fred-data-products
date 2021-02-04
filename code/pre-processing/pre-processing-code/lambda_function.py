@@ -18,7 +18,7 @@ marketplace = boto3.client(
 	region_name=os.environ['REGION']
 )
 
-source_url = os.environ('SOURCE_URL')
+source_url = os.environ['SOURCE_URL']
 s3_bucket = os.environ['S3_BUCKET']
 data_set_arn = os.environ['DATA_SET_ARN']
 data_set_id = data_set_arn.split('/', 1)[1]
@@ -71,7 +71,7 @@ def start_change_set(describe_entity_response, revision_arn):
 	response = marketplace.start_change_set(
 		Catalog='AWSMarketplace', ChangeSet=change_set)
 
-  CHANGE_SET_RETRIES = 5
+	CHANGE_SET_RETRIES = 5
 	i = 0
 	while i < CHANGE_SET_RETRIES:
 		time.sleep(1)
