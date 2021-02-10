@@ -1,0 +1,1 @@
+This product contains US-county-level COVID-19 data retrieved from CovidActNow: https://covidactnow.org. Data is updated daily.
