@@ -26,7 +26,7 @@ while [[ $# -gt 0 ]]; do
     "-s"|"--source_url") export SOURCE_URL="$1"; shift;;
     "-s"|"--schedule_cron") export SCHEDULE_CRON="$1"; shift;;
     "-s"|"--s3-bucket") export S3_BUCKET="$1"; shift;;
-    "-d"|"--dataset-name") export DATASET_NAME="$1"; shift;;
+    "-d"|"--dataset-name") export DATA_SET_NAME="$1"; shift;;
     "-p"|"--product-name") export PRODUCT_NAME="$1"; shift;;
     "-i"|"--product-id") export PRODUCT_ID="$1"; shift;;
     "-r"|"--region") export REGION="$1"; shift;;
@@ -35,10 +35,10 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-while [[ ${#DATASET_NAME} -gt 53 ]]; do
+while [[ ${#DATA_SET_NAME} -gt 53 ]]; do
     echo "dataset-name must be under 53 characters in length, enter a shorter name:"
-    read -p "New dataset-name: " DATASET_NAME
-    case ${#DATASET_NAME} in
+    read -p "New dataset-name: " DATA_SET_NAME
+    case ${#DATA_SET_NAME} in
         [1-9]|[1-4][0-9]|5[0-3]) break;;
         * ) echo "Enter in a shorter dataset-name";;
     esac
@@ -54,25 +54,25 @@ while [[ ${#PRODUCT_NAME} -gt 72 ]]; do
 done
 
 echo  "creating a pre-processing zip package, these commands may need to be adjusted depending on folder structure and dependencies"
-(cd code/pre-processing/pre-processing-code && zip -r pre-processing-code.zip . -x "*.dist-info/*" -x "bin/*" -x "**/__pycache__/*")
+(cd pre-processing/pre-processing-code && zip -r pre-processing-code.zip . -x "*.dist-info/*" -x "bin/*" -x "**/__pycache__/*")
 
 #upload pre-preprocessing.zip to s3
 echo "uploading pre-preprocessing.zip to s3"
-aws s3 cp code/pre-processing/pre-processing-code/pre-processing-code.zip s3://$S3_BUCKET/$DATASET_NAME/automation/pre-processing-code.zip --region "$REGION" $PROFILE
+aws s3 cp pre-processing/pre-processing-code/pre-processing-code.zip s3://$S3_BUCKET/"$DATA_SET_NAME"/automation/pre-processing-code.zip --region "$REGION" $PROFILE
 
 #creating dataset on ADX
 echo "creating dataset on ADX"
-DATASET_COMMAND="aws dataexchange create-data-set --asset-type "S3_SNAPSHOT" --description file://docs/$PRODUCT_CODE/dataset-description.md --name \"${PRODUCT_NAME}\" --region $REGION --output json $PROFILE"
+DATASET_COMMAND="aws dataexchange create-data-set --asset-type "S3_SNAPSHOT" --description file://../docs/$PRODUCT_CODE/dataset-description.md --name \"${PRODUCT_NAME}\" --region $REGION --output json $PROFILE"
 DATASET_OUTPUT=$(eval $DATASET_COMMAND)
 DATASET_ARN=$(echo $DATASET_OUTPUT | tr '\r\n' ' ' | jq -r '.Arn')
 DATASET_ID=$(echo $DATASET_OUTPUT | tr '\r\n' ' ' | jq -r '.Id')
 
-echo "{\"PRODUCT_CODE\":\"${PRODUCT_CODE}\",\"PRODUCT_URL\":\"${PRODUCT_URL}\",\"SOURCE_URL\": \"${SOURCE_URL}\",\"DATASET_NAME\":\"${DATASET_NAME}\",\"DATASET_ARN\":\"${DATASET_ARN}\",\"DATASET_ID\":\"${DATASET_ID}\",\"PRODUCT_NAME\":\"${PRODUCT_NAME}\",\"PRODUCT_ID\":\"${PRODUCT_ID}\",\"SCHEDULE_CRON\":\"${SCHEDULE_CRON}\"}" >> "$products_info_file"
+echo "{\"PRODUCT_CODE\":\"${PRODUCT_CODE}\",\"PRODUCT_URL\":\"${PRODUCT_URL}\",\"SOURCE_URL\": \"${SOURCE_URL}\",\"DATA_SET_NAME\":\"${DATA_SET_NAME}\",\"DATASET_ARN\":\"${DATASET_ARN}\",\"DATASET_ID\":\"${DATASET_ID}\",\"PRODUCT_NAME\":\"${PRODUCT_NAME}\",\"PRODUCT_ID\":\"${PRODUCT_ID}\",\"SCHEDULE_CRON\":\"${SCHEDULE_CRON}\"}" >> "$products_info_file"
 
 #creating pre-processing cloudformation stack
-echo "creating pre-processing cloudformation stack"
-CFN_STACK_NAME="producer-${DATASET_NAME}-preprocessing"
-aws cloudformation create-stack --stack-name "$CFN_STACK_NAME" --template-body file://code/pre-processing/pre-processing-cfn.yaml --parameters ParameterKey=S3Bucket,ParameterValue="$S3_BUCKET" ParameterKey=DataSetName,ParameterValue="$DATASET_NAME" ParameterKey=DataSetArn,ParameterValue="$DATASET_ARN" ParameterKey=ProductId,ParameterValue="$PRODUCT_ID" ParameterKey=Region,ParameterValue="$REGION" ParameterKey=SourceURL,ParameterValue="$SOURCE_URL" ParameterKey=ScheduleCron,ParameterValue="'$SCHEDULE_CRON'" --region "$REGION" --capabilities "CAPABILITY_AUTO_EXPAND" "CAPABILITY_NAMED_IAM" "CAPABILITY_IAM" $PROFILE
+CFN_STACK_NAME="producer-${DATA_SET_NAME}-preprocessing"
+echo "creating pre-processing cloudformation stack: $CFN_STACK_NAME"
+aws cloudformation create-stack --stack-name "$CFN_STACK_NAME" --template-body file://pre-processing/pre-processing-cfn.yaml --parameters ParameterKey=S3Bucket,ParameterValue="$S3_BUCKET" ParameterKey=DataSetName,ParameterValue="$DATA_SET_NAME" ParameterKey=DataSetArn,ParameterValue="$DATASET_ARN" ParameterKey=ProductId,ParameterValue="$PRODUCT_ID" ParameterKey=Region,ParameterValue="$REGION" ParameterKey=SourceURL,ParameterValue="$SOURCE_URL" ParameterKey=ScheduleCron,ParameterValue="'$SCHEDULE_CRON'" --region "$REGION" --capabilities "CAPABILITY_AUTO_EXPAND" "CAPABILITY_NAMED_IAM" "CAPABILITY_IAM" $PROFILE
 
 echo "waiting for cloudformation stack to complete"
 aws cloudformation wait stack-create-complete --stack-name "$CFN_STACK_NAME" --region "$REGION" "$PROFILE"
@@ -86,7 +86,7 @@ fi
 
 #invoking the pre-processing lambda function to create first dataset revision
 echo "invoking the pre-processing lambda function to create first dataset revision"
-LAMBDA_FUNCTION_NAME="source-for-${DATASET_NAME}"
+LAMBDA_FUNCTION_NAME="source-for-${DATA_SET_NAME}"
 # AWS CLI version 2 changes require explicitly declairing `--cli-binary-format raw-in-base64-out` for the format of the `--payload`
 LAMBDA_FUNCTION_STATUS_CODE=$(aws lambda invoke --function-name "$LAMBDA_FUNCTION_NAME" --invocation-type "RequestResponse" --payload '{ "test": "event" }' response.json --cli-binary-format raw-in-base64-out --region "$REGION" --query 'StatusCode' --output text $PROFILE)
 
@@ -101,7 +101,7 @@ update () {
   
   # Cloudformation stack update
   echo "updating pre-processing cloudformation stack"
-  aws cloudformation create-stack --stack-name "$CFN_STACK_NAME" --use-previous-template --parameters ParameterKey=S3Bucket,ParameterValue="$S3_BUCKET" ParameterKey=DataSetName,ParameterValue="$DATASET_NAME" ParameterKey=DataSetArn,ParameterValue="$DATASET_ARN" ParameterKey=ProductId,ParameterValue="$NEW_PRODUCT_ID" ParameterKey=Region,ParameterValue="$REGION" ParameterKey=SourceURL,ParameterValue="$SOURCE_URL" ParameterKey=ScheduleCron,ParameterValue="$SCHEDULE_CRON" --region "$REGION" --capabilities "CAPABILITY_AUTO_EXPAND" "CAPABILITY_NAMED_IAM" "CAPABILITY_IAM" $PROFILE
+  aws cloudformation create-stack --stack-name "$CFN_STACK_NAME" --use-previous-template --parameters ParameterKey=S3Bucket,ParameterValue="$S3_BUCKET" ParameterKey=DataSetName,ParameterValue="$DATA_SET_NAME" ParameterKey=DataSetArn,ParameterValue="$DATASET_ARN" ParameterKey=ProductId,ParameterValue="$NEW_PRODUCT_ID" ParameterKey=Region,ParameterValue="$REGION" ParameterKey=SourceURL,ParameterValue="$SOURCE_URL" ParameterKey=ScheduleCron,ParameterValue="$SCHEDULE_CRON" --region "$REGION" --capabilities "CAPABILITY_AUTO_EXPAND" "CAPABILITY_NAMED_IAM" "CAPABILITY_IAM" $PROFILE
 
   echo "waiting for cloudformation stack update to complete"
   aws cloudformation wait stack-update-complete --stack-name "$CFN_STACK_NAME" --region "$REGION" $PROFILE
@@ -149,7 +149,7 @@ if [[ $DATASET_REVISION_STATUS == "true" ]]; then
   echo ""
   echo "Dataset: $PRODUCT_CODE"
   echo "S3Bucket: $S3_BUCKET"
-  echo "DataSetName: $DATASET_NAME"
+  echo "DataSetName: $DATA_SET_NAME"
   echo "DataSetArn: $DATASET_ARN"
   echo "Region: $REGION"
   echo ""

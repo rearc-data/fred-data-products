@@ -75,12 +75,12 @@ def start_change_set(describe_entity_response, revision_arn):
 	i = 0
 	while i < CHANGE_SET_RETRIES:
 		time.sleep(1)
-		change_set_id = response['change_set_id']
+		change_set_id = response['ChangeSetId']
 		
 		describe_change_set = marketplace.describe_change_set(
-				Catalog='AWSMarketplace', ChangeSet=change_set_id)
+				Catalog='AWSMarketplace', ChangeSetId=change_set_id)
 		
-		describe_change_set_status = describe_change_set['status']
+		describe_change_set_status = describe_change_set['Status']
 		
 		if describe_change_set_status == 'SUCCEEDED':
 				break 
