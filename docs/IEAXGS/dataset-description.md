@@ -1,0 +1,1 @@
+This product contains a historical time-series data of the Exports of goods and services (IEAXGS) retrieved from the Federal Reserve Bank of St. Louis Economic Data (FRED) at https://fred.stlouisfed.org/series/IEAXGS. Data coverage starts from 1999-01-01. The unit of data column is Millions of Dollars and the values are seasonally adjusted. The update frequency is quarterly.

@@ -1,0 +1,1 @@
+This product contains a historical time-series data of the Gross Domestic Product (GDP) retrieved from the Federal Reserve Bank of St. Louis Economic Data (FRED) at https://fred.stlouisfed.org/series/GDP. Data coverage starts from 1947-01-01. The unit of data column is Billions of Dollars and the values are seasonally adjusted at an annual rate. The update frequency is quarterly.

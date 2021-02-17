@@ -1,0 +1,1 @@
+This product contains a historical time-series data of S&P Dow Jones Indices LLC, S&P 500 (SP500) retrieved from the Federal Reserve Bank of St. Louis Economic Data (FRED) at https://fred.stlouisfed.org/series/SP500. Data coverage starts from 2011-02-03. The values are not seasonally adjusted. The update frequency is daily, at close of the day.

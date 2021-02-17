@@ -1,0 +1,1 @@
+This product contains a historical time-series data of Moody's Seasoned Aaa Corporate Bond Yield (AAA) retrieved from the Federal Reserve Bank of St. Louis Economic Data (FRED) at https://fred.stlouisfed.org/series/AAA. Data coverage starts from 1919-01-01. The unit of the data is Percent. Values are not seasonally adjusted. The update frequency is monthly.

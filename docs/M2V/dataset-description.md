@@ -1,0 +1,1 @@
+This product contains a historical time-series data of the Velocity of M2 Money Stock (M2V) retrieved from the Federal Reserve Bank of St. Louis Economic Data (FRED) at https://fred.stlouisfed.org/series/M2V. Data coverage starts from 1959-01-01. The unit of data column is Ratio and the values are seasonally adjusted. The update frequency is quarterly.

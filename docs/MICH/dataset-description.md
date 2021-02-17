@@ -1,0 +1,1 @@
+This product contains a historical time-series data of the University of Michigan: Inflation Expectation (MICH) retrieved from the Federal Reserve Bank of St. Louis Economic Data (FRED) at https://fred.stlouisfed.org/series/MICH. Data coverage starts from 1978-01-01. The unit of data column is Percent and the values are not seasonally adjusted. The update frequency is monthly.
